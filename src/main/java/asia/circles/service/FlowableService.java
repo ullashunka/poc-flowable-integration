@@ -37,4 +37,8 @@ public class FlowableService {
 		List<Task> list = taskService.createTaskQuery().taskId(id).list();
 		return list.get(0);
 	}
+
+	public List<Task> getTaskByState(String state) {
+		return taskService.createTaskQuery().processInstanceId(state).list();
+	}
 }

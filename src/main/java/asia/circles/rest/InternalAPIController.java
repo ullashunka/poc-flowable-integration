@@ -55,6 +55,11 @@ public class InternalAPIController {
 	public Task getTaskById(String id) {
 		return myService.getTaskById(id);
 	}
+	
+	@GetMapping(value = "/tasks/{state}")
+	public List<Task> getTaskByState(String state) {
+		return myService.getTaskByState(state);
+	}
 
 	@RequestMapping(value = "/tasks", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<TaskRepresentation> getTasks(@RequestParam String assignee) {
