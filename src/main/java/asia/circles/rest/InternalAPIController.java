@@ -70,6 +70,16 @@ public class InternalAPIController {
 		}
 		return dtos;
 	}
+	
+	@RequestMapping(value = "/alltasks", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public List<TaskRepresentation> getAllTasks() {
+		List<Task> tasks = myService.getAllTasks();
+		List<TaskRepresentation> dtos = new ArrayList<TaskRepresentation>();
+		for (Task task : tasks) {
+			dtos.add(new TaskRepresentation(task.getId(), task.getName()));
+		}
+		return dtos;
+	}
 
 	static class TaskRepresentation {
 

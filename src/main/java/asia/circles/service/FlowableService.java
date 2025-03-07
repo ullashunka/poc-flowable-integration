@@ -24,6 +24,7 @@ public class FlowableService {
 	@Transactional
 	public String createProcess() {
 		ProcessInstance instance = runtimeService.startProcessInstanceByKey("oneTaskProcess");
+		System.out.println(instance.getActivityId() + "....created Act id");
 		return instance.getActivityId();
 	}
 
@@ -33,12 +34,16 @@ public class FlowableService {
 	}
 
 	public Task getTaskById(String id) {
-		
+
 		List<Task> list = taskService.createTaskQuery().taskId(id).list();
 		return list.get(0);
 	}
 
 	public List<Task> getTaskByState(String state) {
 		return taskService.createTaskQuery().processInstanceId(state).list();
+	}
+
+	public List<Task> getAllTasks() {
+		return taskService.createTaskQuery().active().list();
 	}
 }
