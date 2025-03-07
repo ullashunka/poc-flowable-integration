@@ -26,6 +26,7 @@
 		<junit.version>4.13.2</junit.version>
 		<junit.jupiter.version>5.3.2</junit.jupiter.version>
 		<junit.vintage.version>5.3.2</junit.vintage.version>
+		<deploy.path>/flowable</deploy.path>
 	</properties>
 
 	<dependencies>
@@ -37,6 +38,14 @@
 		</dependency>
 		<!-- Starter for building web, including RESTful, applications using
 		Spring MVC. Uses Tomcat as the default embedded container -->
+
+		<!--
+		https://mvnrepository.com/artifact/org.springframework.security/spring-security-web -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+
 
 		<!-- H2 Database Engine -->
 		<dependency>
@@ -159,6 +168,7 @@
 	</dependencies>
 
 	<build>
+		<finalName>${deploy.path}</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>

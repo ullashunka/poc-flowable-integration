@@ -8,6 +8,7 @@ import java.util.concurrent.atomic.AtomicLong;
 
 @Component
 public class ArrayProcessingMetrics {
+	
     private final MeterRegistry registry;
     private final Counter arraysProcessedCounter;
     private final Counter elementsProcessedCounter;
