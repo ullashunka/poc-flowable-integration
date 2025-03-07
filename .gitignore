@@ -51,6 +51,8 @@ build/
 /logs/
 /jmeter.log
 
+**.versionsBackup
+
 /dev/setup/config/environments.py
 dev/setup/config/environments.py
 /dev/liquibase/liquibase.properties
